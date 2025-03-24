@@ -1,0 +1,235 @@
+/* General Styles */
+body {
+  font-family: "Macondo", cursive;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000000; /* Fallback background */
+}
+
+/* Hero Section with Background */
+.hero-section {
+  background: url('G_assets/wallpaper_OG.png') no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* Light Overlay */
+.hero-section::before {
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(236, 234, 234, 0.1); /* Light overlay (20% opacity) */
+}
+
+/* Hero Content */
+.hero-section .container {
+  z-index: 1;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: fadeInDown 1.5s ease-out;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* Buttons */
+a {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  width: 160px;
+  height: 50px;
+  line-height: 48px;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 4px;
+  background: white;
+  text-decoration: none;
+  color: #000;
+  transition: 0.5s;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+a::before,
+a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  opacity: 0;
+  transition: 0.5s;
+  animation: animate 20s linear infinite;
+}
+
+a::after {
+  filter: blur(20px);
+}
+
+a:hover::before,
+a:hover::after {
+  opacity: 1;
+}
+
+a span {
+  position: absolute;
+  display: block;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+a:hover span {
+  color: #000; /* Black text on hover */
+}
+
+a span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe Animations */
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Title */
+.display-4{
+  font-family: "Quantico", sans-serif;
+}
+.display-4:hover{
+text-decoration: underline;
+font-size: 75px;
+color: rgba(0, 0, 0, 0.829);
+}
+
+/* English Page */
+body.english-page {
+  background-image: url('G_assets/Background_1.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 80px
+}
+
+/* French Page */
+body.french-page {
+  background-image: url('G_assets/Background_2.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 80px
+}
+
+/* Spanish Page */
+body.spanish-page {
+  background-image: url('G_assets/Background_3.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 80px
+}
+
+/* Smooth Scroll and Scroll Snap for Content Pages */
+body.english-page,
+body.french-page,
+body.spanish-page {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+body.english-page section,
+body.french-page section,
+body.spanish-page section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  animation: autoShowAnimation;
+  animation-timeline: view(70% 5%);
+}
+
+@keyframes autoShowAnimation {
+  from{
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  } to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
